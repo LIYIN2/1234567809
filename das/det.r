@@ -42,11 +42,6 @@ Dat<-na.omit(Dat)
 picture <- ggplot(Dat,aes(x=log2FoldChange,y=-log10(padj),color=threshold))+
   geom_point()+
   scale_color_manual(values=c("#DC143C","#00008B","#808080"))+#确定点的颜色
-  geom_text_repel(
-    data = Dat[Dat$padj<PP&abs(Dat$log2FoldChange)>FF,],
-    aes(label = id),
-    size = 3,
-    segment.color = "black", show.legend = FALSE )+#添加关注的点的基因名
   theme_bw()+#修改图片背景
   theme(
     legend.title = element_blank()#不显示图例标题
